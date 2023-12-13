@@ -21,8 +21,8 @@ variable "management_instance_type" {
   default = "m5.xlarge"
 }
 module "validate_instance_type" {
-  source = "../modules/common/instance_type"
-
+  source  = "gbrembati/cgns-module-instance-type/aws"
+  version = "1.0.0"
   chkp_type = "management"
   instance_type = var.management_instance_type
 }
@@ -89,7 +89,8 @@ variable "management_version" {
   default = "R81.20-BYOL"
 }
 module "validate_management_version" {
-  source = "../modules/common/version_license"
+  source  = "gbrembati/cgns-module-version-license/aws"
+  version = "1.0.0"
 
   chkp_type = "management"
   version_license = var.management_version
